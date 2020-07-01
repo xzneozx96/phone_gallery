@@ -12,6 +12,7 @@ import { ProductItemComponent } from './products/product-list/product-item/produ
 import { CartComponent } from './cart/cart.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { PhoneService } from './shared/phone.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PhoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
