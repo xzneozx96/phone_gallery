@@ -1,1 +1,18 @@
-<p>products works!</p>
+<div class="container" *ngFor="let phone of phonesList">
+  <div class="card" style="width: 250px;">
+    <img class="card-img-top" src="https://salt.tikicdn.com/cache/200x200/ts/product/38/ce/53/45e99c841c96a1728547eaa4ff01b642.jpg" alt="Card image" style="width: 100%;" />
+    <div class="card-body">
+      <h4 class="card-title">{{ phone.name }}</h4>
+      <p class="card-text">
+        Some example text some example text. John Doe is an architect and
+        engineer
+      </p>
+    </div>
+  </div>
+</div>
+<!-- 
+<div *ngFor="let phone of phonesList; let i = index">
+  <div>i : {{phone}}</div>
+</div> -->
+
+<div (click)="getInfor()">sdfa</div>

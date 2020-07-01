@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from flask_restful import Resource, request
+from flask import make_response
 from flask_jwt_extended import jwt_required
 from bson import json_util
 
@@ -14,10 +15,11 @@ collection_trash_items = db["trash"]
 class Items(Resource):
     def get(self):
         docs_list = []
-        for doc in collection_phones.find():
+        collections = list(collection_phones.find())
+        print(type(collections[0]))
+        for doc in collections:
             docs_list.append(doc)
-        return json.dumps(docs_list, indent=4, default=json_util.default), 200
-
+        return make_response(json_util.dumps(docs_list, ensure_ascii=False).encode('utf8')) 
 
 class Item(Resource):
     def get(self, name):
