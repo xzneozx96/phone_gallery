@@ -23,7 +23,7 @@
 
 3. Start virtual environment
 
-  ./venv/bin/activate
+  source ./venv/bin/activate
 
 4. Install packages from requirements.txt to virtual environment
 
