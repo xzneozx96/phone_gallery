@@ -1,1 +1,16 @@
-<p>product-item works!</p>
+<div class="row">
+  <div class="col-md-4 col-sm-6 text-center mb-3 pt-3" id="productbox" *ngFor="let phone of phonesList" >
+      <img  class="img-thumbnail mb-3" src="https://salt.tikicdn.com/cache/80x80/ts/product/a5/3d/8c/974120ab5490c10861789d246c538a5a.png">
+      <div class="row" (click)="getPhoneDetail(phone.linkproduct)">
+          <div class="col-sm-12" style="height: 50px;">
+              <span class="font-weight-bold">{{phone.name}}</span>
+          </div>
+          <div class="col-sm-12">
+              <p>Price: {{phone.price | currency: 'USD'}}</p>
+          </div>
+          <div class="col-sm-12">
+              <div class="btn btn-outline-danger mb-5 w-50" (click)="addItemToCart(phone.name)">Add To Cart</div>
+          </div>
+      </div>
+  </div>
+</div>

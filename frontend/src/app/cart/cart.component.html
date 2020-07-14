@@ -1,1 +1,59 @@
-<p>cart works!</p>
+<div class="container">
+  <h1 class="text-center mt-5 mat-display-2" style="color: #33272a;">SHOPPING CART</h1>
+
+  <div class="row">
+      <!-- CART -->
+      <div class="col-md-6 col-xs-12 my-5 py-5 pl-5 text-left">
+          <div>
+              <div class="row mb-5" *ngFor="let item of cartItems">
+                  <div class="col-xs-6 ml-1">
+                      <img class="w-100" src ="item.imageURL[0]">
+                  </div>
+                  <div class="col-xs-6 ml-4">
+                      <h3 class="font-weight-bold text-truncate" style="max-width: 300px;">{{item.name}}</h3>
+                      <h4>{{item.name}}</h4>
+                      <h4>USD {{item.price | currency: 'USD'}}</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- <div class="col-md-6 col-xs-12 my-5 py-5 pl-5 text-left" style="background-color: #faeee7;"
+          *ngIf="!cartItems">
+          <div>
+              <h3 style="color: #33272a;">YOUR SHOPPING CART IS EMPTY!</h3>
+          </div>
+      </div> -->
+
+      <div class="col-md-6 col-xs-12  my-5 py-5 pl-5">
+          <div class="row">
+              <div class="col-sm-12">
+                  <p>ADD A DISCOUNT CODE
+                  </p>
+                  <form>
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <input type="text" class="form-control w-100" id="formGroupExampleInput"
+                                      placeholder="">
+                              </div>
+                              <div class="col-md-6">
+                                  <button type="button" class="btn btn-outline-danger">ADD CODE</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+
+                  <div class="row my-4">
+                      <div class="col-md-6">
+                          <p class="font-weight-bold">Total</p>
+                      </div>
+                      <div class="col-md-6">
+                          <p class="font-weight-bold ml-5">{{total_price| currency: 'USD'}}</p>
+                      </div>
+                  </div>
+                  <button class="btn btn-outline-danger w-75" routerLink = '/checkout'>CONTINUE TO CHECKOUT</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

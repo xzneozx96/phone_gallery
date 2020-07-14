@@ -16,7 +16,6 @@ class Items(Resource):
     def get(self):
         docs_list = []
         collections = list(collection_phones.find())
-        print(type(collections[0]))
         for doc in collections:
             docs_list.append(doc)
         return make_response(json_util.dumps(docs_list, ensure_ascii=False).encode('utf8')) 
@@ -48,22 +47,33 @@ class Item(Resource):
         else:
             return {"msg": "Can not found this phone"}, 400
 
-    def post(self, name):  # restore the deleted item
+    # def post(self, name):  # restore the deleted item
+    #     name = "https://tiki.vn/" + name + ".html"
+    #     docs_list = []
+    #     data = collection_trash_items.find({"linkproduct": name})[0]
+    #     if data:
+    #         if collection_phones.find({"linkproduct": name}):
+    #             pass
+    #         else:
+    #             collection_phones.insert_many(data)
+    #         collection_trash_items.delete_many({"linkproduct": name})
+
+    #         for doc in collection_phones.find({"linkproduct": name}):
+    #             docs_list.append(doc)
+    #         return json.dumps(docs_list, indent=4, default=json_util.default), 200
+    #     else:
+    #         return {"msg": "Can not found this phone"}, 400
+
+    def post(self,name):
         name = "https://tiki.vn/" + name + ".html"
         docs_list = []
-        data = collection_trash_items.find({"linkproduct": name})[0]
+        data = collection_phones.find({"linkproduct": name})[0]
+        docs_list.append(data)
         if data:
-            if collection_phones.find({"linkproduct": name}):
-                pass
-            else:
-                collection_phones.insert_many(data)
-            collection_trash_items.delete_many({"linkproduct": name})
-
-            for doc in collection_phones.find({"linkproduct": name}):
-                docs_list.append(doc)
+            # return make_response(json.dumps(docs_list, ensure_ascii=False).encode('utf8')), 200
             return json.dumps(docs_list, indent=4, default=json_util.default), 200
         else:
-            return {"msg": "Can not found this phone"}, 400
+            return {"msg": "Can not find this product"}, 400
 
     def put(self, name):
         name = "https://tiki.vn/" + name + ".html"

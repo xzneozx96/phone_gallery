@@ -5,6 +5,8 @@ from flask_cors import CORS
 
 from resources.user import *
 from resources.item import Items, Item, CreateItem
+from resources.cart import *
+
 
 app = Flask(__name__)
 app.secret_key = 'bkai@417'
@@ -17,7 +19,8 @@ api.add_resource(UserRegister, "/admin/register")
 api.add_resource(UserLogin, "/admin/login")  
 api.add_resource(CreateItem, "/admin/create")  
 api.add_resource(Items, "/phones")  
-api.add_resource(Item, "/phone/<string:name>")  
+api.add_resource(Item, "/phone/phoneslist/<string:name>")  
+api.add_resource(Cart,"/cart")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

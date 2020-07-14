@@ -1,18 +1,38 @@
-<div class="container" *ngFor="let phone of phonesList">
-  <div class="card" style="width: 250px;">
-    <img class="card-img-top" src="https://salt.tikicdn.com/cache/200x200/ts/product/38/ce/53/45e99c841c96a1728547eaa4ff01b642.jpg" alt="Card image" style="width: 100%;" />
-    <div class="card-body">
-      <h4 class="card-title">{{ phone.name }}</h4>
-      <p class="card-text">
-        Some example text some example text. John Doe is an architect and
-        engineer
-      </p>
+<!-- <div class="single-product-area">
+  <div class="zigzag-bottom"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" *ngFor="let phone of phonesList">
+        <div class="single-shop-product">
+          <div class="product-upper">
+            <img
+              src="https://salt.tikicdn.com/cache/200x200/ts/product/38/ce/53/45e99c841c96a1728547eaa4ff01b642.jpg"
+              alt="{{ phone.name }}"
+            />
+          </div>
+          <h2 class="product-name">
+            <a href="">{{ phone.name }}</a>
+          </h2>
+          <div class="product-carousel-price">
+            <ins>${{ phone.price }}</ins> 
+            <del>${{ phone.price + 0 }}</del>
+          </div>
+
+          <div class="product-option-shop" (click)="getInfor(phone)">
+            <a
+              class="add_to_cart_button"
+              data-quantity="1"
+              data-product_sku=""
+              data-product_id="70"
+              rel="nofollow"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- 
-<div *ngFor="let phone of phonesList; let i = index">
-  <div>i : {{phone}}</div>
 </div> -->
-
-<div (click)="getInfor()">sdfa</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -12,7 +12,8 @@ import { ProductItemComponent } from './products/product-list/product-item/produ
 import { CartComponent } from './cart/cart.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { PhoneService } from './shared/phone.service';
+import { PhoneService } from './shared/service/phone.service';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { PhoneService } from './shared/phone.service';
     ProductItemComponent,
     CartComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

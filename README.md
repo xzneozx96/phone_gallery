@@ -16,7 +16,7 @@
 
 
 ////         RUN SERVER          ////
-1. Redirect to server folder
+1. Redirect to server/code folder
 2. Create virtual environment named "env" in this repo:
 
   virtualenv env
